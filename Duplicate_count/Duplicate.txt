@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+var counter int
+
+func count(s []string) map[string]int {
+	temp := make(map[string]int)
+
+	for _, v := range s {
+
+		_, ok := temp[v]
+
+		if ok {
+			counter++
+			temp[v] = counter
+		} else {
+			counter = 0
+			counter++
+			temp[v] = counter
+		}
+	}
+
+	return temp
+}
+
+func main() {
+
+	a := []string{"Hello", "World", "GoodBye", "World", "We", "Love", "Love", "You"}
+
+	fmt.Println(count(a))
+
+}
