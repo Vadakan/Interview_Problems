@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+type Person struct {
+	name string
+	age  int
+}
+
+func main() {
+	//p1 := Person{"sundar", 28,}
+	ma := make(map[string]int)
+
+	ma["sundar"] = 1
+	fmt.Println("before update:", ma)
+	update(ma, "sundar")
+	fmt.Println("After update:", ma)
+}
+
+func update(ma map[string]int, s string) {
+	ma[s] = 2
+	ma["Raji"] = 3
+}
