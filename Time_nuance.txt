@@ -1,0 +1,13 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	T := time.Now().Add(time.Hour * 3).Unix()
+	//UT := T.Add(time.Hour * 3)
+	fmt.Println(T)
+
+}
