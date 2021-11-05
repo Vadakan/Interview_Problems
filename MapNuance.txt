@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+)
+
+type CON map[string]interface{}
+
+func main() {
+	a := CON{
+		"Raji":   "Female",
+		"Rajesh": "Male",
+	}
+	b := make(map[string]string)
+
+	//b = b{"Hai": "Hello"}
+
+	fmt.Println(a, b)
+}
