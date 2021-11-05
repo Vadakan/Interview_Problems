@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+	"time"
+
+	"github.com/dgrijalva/jwt-go"
+)
+
+func GenerateToken(username, password string) jwt.MapClaims {
+
+	Payload := jwt.MapClaims{
+		"Username": username,
+		"password": password,
+		"Exp":      time.Now().Add(time.Hour * 3).Format("2006-01-02 15:04:05"),
+	}
+
+	return Payload
+}
+
+func main() {
+
+	Claim := GenerateToken("Muni", "ab123")
+
+	PtrToken := jwt.NewWithClaims(jwt.SigningMethodHS256, Claim)
+
+	ResultToken, _ := PtrToken.SignedString([]byte("SundarKey"))
+
+	fmt.Println(ResultToken)
+
+}
