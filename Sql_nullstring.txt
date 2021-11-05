@@ -1,0 +1,33 @@
+package main
+
+import (
+	"database/sql"
+	"fmt"
+)
+
+type Login struct {
+	username sql.NullString
+}
+
+func main() {
+
+	a := Login{
+		username: sql.NullString{
+			String: "",
+			Valid:  false,
+		},
+	}
+
+	b := Login{
+		username: sql.NullString{
+			String: "Raji",
+			Valid:  true,
+		},
+	}
+
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Println(a.username.Valid)
+	fmt.Println(b.username.Valid)
+
+}
