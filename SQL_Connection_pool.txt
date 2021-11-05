@@ -1,0 +1,3 @@
+db.SetMaxOpenConns(3)
+db.SetMaxIdleConns(10)
+db.SetConnMaxLifetime(3)
