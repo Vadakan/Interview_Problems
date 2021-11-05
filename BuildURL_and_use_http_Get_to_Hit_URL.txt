@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"net/url"
+)
+
+func main() {
+	u := url.URL{
+		Host:   "www.google.com",
+		Path:   "/search",
+		Scheme: "https",
+	}
+
+	fmt.Println(u)
+
+	res := u.Query() // gives empty map of key as string and value as "slice of string" [string][]string
+
+	res.Add("Token", "SundarToken")
+	res.Add("Key", "SundarKey")
+
+	fmt.Println(res)
+	fmt.Println(res.Encode()) //convert map to string format
+	u.RawQuery = res.Encode() //assign previuosly coverted string to RawQuery field in url.URL struct
+	final_url := u.String()   //convert to string
+	response, err := http.Get(final_url)  //response is a struct which has all details from website
+
+	if err != nil {
+		//panic(err)
+		fmt.Println(err.Error())
+	}
+
+	fmt.Println("Response :", response)
+
+}
