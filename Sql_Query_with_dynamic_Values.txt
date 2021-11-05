@@ -1,0 +1,10 @@
+FindSql := "select a.username,a.customer_id,a.role,group_concat(b.account_id) as account_id " +
+		"from users a inner join accounts b " +
+		"on a.customer_id = b.customer_id " +
+		"where a.username = ? " +
+		"and a.password = ? " +
+		"group by a.customer_id;"
+
+
+login := new(Login)
+	err := s.Client.Get(login,FindSql,username,password)
