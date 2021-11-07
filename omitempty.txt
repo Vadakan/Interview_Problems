@@ -1,0 +1,23 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type Person struct {
+	Name  string `json:"name"`
+	Lname string `json:",omitempty"`
+}
+
+func main() {
+
+	a := Person{
+		Name:  "Sundar",
+		Lname: "",
+	}
+	bs, _ := json.Marshal(a)
+
+	fmt.Println(string(bs))
+
+}
