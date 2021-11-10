@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	a := []int{0,2,100,4,4,2}
+
+	for i := 0; i < len(a); i++ {
+
+		for j := i + 1; j < len(a); j++ {
+
+			if a[i]+a[j] == 6 {
+				fmt.Println(a[i], a[j])
+			}
+
+		}
+
+	}
+
+}
