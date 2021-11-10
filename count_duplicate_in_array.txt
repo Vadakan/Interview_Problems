@@ -1,0 +1,34 @@
+package main
+
+import "fmt"
+
+var count int
+
+func main() {
+
+	a := []int{0, 1, 2, 3, 3, 4, 4, 4, 5}
+	tmpmap := make(map[int]int)
+
+	for _, v := range a {
+
+		_, present := tmpmap[v]
+
+		if present {
+			count++
+			tmpmap[v] = count
+		} else {
+			count = 1
+			tmpmap[v] = count
+		}
+
+	}
+
+	fmt.Println(tmpmap)
+
+	for key, value := range tmpmap {
+		if value > 1 {
+			fmt.Println(key)
+		}
+	}
+
+}
