@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	a := []int{1, 2, 2, 3, 3, 4, 4, 5, 5}
+	tempmap := make(map[int]int)
+
+	for _, value := range a {
+
+		tempmap[value] = value
+
+	}
+	a = []int{}
+	for _, val := range tempmap {
+
+		a = append(a, val)
+	}
+
+	fmt.Println(a)
+
+}
