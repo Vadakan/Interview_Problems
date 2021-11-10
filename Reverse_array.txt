@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	a := []int{1, 5, 6, 7, 8, 9, 10}
+	b := make([]int, 0)
+
+	for i := len(a) - 1; i >= 0; i-- {
+
+		b = append(b, a[i])
+
+	}
+
+	fmt.Println(b)
+
+}
