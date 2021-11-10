@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+var Largest, Smallest int
+
+func main() {
+
+	a := []int{200, 5, 100, 300, 320, 270, 190}
+
+	for index, value := range a {
+		if index == 0 {
+			Largest = value
+			Smallest = value
+			continue
+		}
+
+		if value > Largest {
+			Largest = value
+		}
+
+		if value < Smallest {
+			Smallest = value
+		}
+
+	}
+
+	fmt.Println(Smallest, Largest)
+
+}
