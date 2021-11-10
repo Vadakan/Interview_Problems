@@ -1,0 +1,38 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+type tmpmap map[int]int
+
+var a []int
+
+func main() {
+
+	m1 := tmpmap{
+
+		100: 2,
+		50:  4,
+		60:  8,
+	}
+	a = make([]int, 0)
+
+	for _, value := range m1 {
+
+		a = append(a, value)
+
+	}
+
+	sort.Ints(a)
+	fmt.Println(a)
+	highestvalue := len(a) - 1
+
+	for key, val := range m1 {
+
+		if val == a[highestvalue] {
+			fmt.Printf("%v ", key)
+		}
+	}
+}
