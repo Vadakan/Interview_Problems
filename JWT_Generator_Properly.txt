@@ -1,0 +1,32 @@
+package main
+
+import (
+	"fmt"
+	"time"
+
+	"github.com/golang-jwt/jwt"
+)
+
+var (
+	hmacSampleSecret []byte
+)
+
+func main() {
+
+	fmt.Println("JWT token generation")
+	hmacSampleSecret = []byte("Legato")
+	claim := GenerateToken("Raji", "abc125", "admin")
+	SignedToken := jwt.NewWithClaims(jwt.SigningMethodHS256, claim)
+	tokenString, _ := SignedToken.SignedString(hmacSampleSecret)
+	fmt.Println(tokenString)
+
+}
+
+func GenerateToken(username, password, role string) jwt.MapClaims {
+	return jwt.MapClaims{
+		"Username": username,
+		"Password": password,
+		"Role":     role,
+		"Exp":      time.Now().Add(time.Hour * 3).Format("2006-01-02 15:04:05"),
+	}
+}
